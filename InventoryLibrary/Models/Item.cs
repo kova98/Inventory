@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace InventoryLibrary.Models
+{
+    class Item
+    {
+        /// <summary>
+        /// The ID of the item.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The name of the item.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The price of the item.
+        /// </summary>
+        public decimal Price { get; set; }
+
+        /// <summary>
+        /// The category of the item.
+        /// </summary>
+        public ItemCategory Category { get; set; }
+    }
+}
