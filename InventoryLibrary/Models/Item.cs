@@ -27,5 +27,10 @@ namespace InventoryLibrary.Models
         /// The category of the item.
         /// </summary>
         public ItemCategory Category { get; set; }
+
+        /// <summary>
+        /// The amount of items available.
+        /// </summary>
+        public int Amount { get; set; }
     }
 }
