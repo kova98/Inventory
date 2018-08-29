@@ -53,7 +53,9 @@ namespace InventoryLibrary.DataAccess
         {
             using (var db = new DatabaseContext())
             {
-                db.Items.Remove(item);
+                var itemToRemove = db.Items.FirstOrDefault(x => x.Id == item.Id);
+
+                db.Items.Remove(itemToRemove);
                 db.SaveChanges();
             }
         }
@@ -67,7 +69,7 @@ namespace InventoryLibrary.DataAccess
         {
             using (var db = new DatabaseContext())
             {
-                var itemToRemove = db.Items.Find(item);
+                var itemToRemove = db.Items.FirstOrDefault(x => x.Id == item.Id);
 
                 itemToRemove.Amount -= amount;
 
@@ -90,7 +92,7 @@ namespace InventoryLibrary.DataAccess
         {
             using (var db = new DatabaseContext())
             {
-                var itemToEdit = db.Items.Find(item);
+                var itemToEdit = db.Items.FirstOrDefault(x => x.Id == item.Id);
                 if (itemToEdit != null)
                 {
                     itemToEdit.Name = item.Name;
@@ -130,7 +132,9 @@ namespace InventoryLibrary.DataAccess
         {
             using (var db = new DatabaseContext())
             {
-                db.Categories.Add(category);
+                var categoryToDelete = db.Categories.FirstOrDefault(x => x.Id == category.Id);
+
+                db.Categories.Remove(categoryToDelete);
                 db.SaveChanges();
             }
         }
@@ -145,7 +149,7 @@ namespace InventoryLibrary.DataAccess
         {
             using (var db = new DatabaseContext())
             {
-                var categoryToFind = db.Categories.Find(category);
+                var categoryToFind = db.Categories.FirstOrDefault(x => x.Id == category.Id);
 
                 if (categoryToFind != null)
                 {

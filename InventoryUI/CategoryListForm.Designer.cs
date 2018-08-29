@@ -101,7 +101,7 @@
             // 
             // categoryNameLabel
             // 
-            this.categoryNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryNameLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryNameLabel.Location = new System.Drawing.Point(3, 43);
             this.categoryNameLabel.Name = "categoryNameLabel";
             this.categoryNameLabel.Size = new System.Drawing.Size(218, 27);

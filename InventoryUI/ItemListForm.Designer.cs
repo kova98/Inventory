@@ -67,6 +67,7 @@
             this.itemsListBox.Name = "itemsListBox";
             this.itemsListBox.Size = new System.Drawing.Size(223, 544);
             this.itemsListBox.TabIndex = 8;
+            this.itemsListBox.SelectedIndexChanged += new System.EventHandler(this.itemsListBox_SelectedIndexChanged);
             // 
             // editItemPanel
             // 
@@ -135,10 +136,10 @@
             // 
             // itemNameLabel
             // 
-            this.itemNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemNameLabel.Location = new System.Drawing.Point(3, 43);
+            this.itemNameLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNameLabel.Location = new System.Drawing.Point(3, 34);
             this.itemNameLabel.Name = "itemNameLabel";
-            this.itemNameLabel.Size = new System.Drawing.Size(218, 27);
+            this.itemNameLabel.Size = new System.Drawing.Size(218, 36);
             this.itemNameLabel.TabIndex = 5;
             this.itemNameLabel.Text = "<item name>";
             this.itemNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -202,6 +203,7 @@
             this.removeSelectedButton.TabIndex = 11;
             this.removeSelectedButton.Text = "Remove Selected";
             this.removeSelectedButton.UseVisualStyleBackColor = true;
+            this.removeSelectedButton.Click += new System.EventHandler(this.removeSelectedButton_Click);
             // 
             // createNewItemButton
             // 
@@ -217,6 +219,7 @@
             this.createNewItemButton.TabIndex = 12;
             this.createNewItemButton.Text = "Create New Item";
             this.createNewItemButton.UseVisualStyleBackColor = true;
+            this.createNewItemButton.Click += new System.EventHandler(this.createNewItemButton_Click);
             // 
             // categoryDropDown
             // 

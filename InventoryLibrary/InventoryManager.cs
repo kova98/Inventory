@@ -10,15 +10,11 @@ namespace InventoryLibrary
 {
     public class InventoryManager
     {
-        public InventoryManager()
+        public static void CreateDefaultCategory()
         {
-            using (var db = new DatabaseContext())
+            if (DatabaseConnector.Categories.Count <= 0)
             {
-                if (db.Categories.Count() <= 0)
-                {
-                    db.Categories.Add(new ItemCategory { Name = "Default Category" });
-                    db.SaveChanges();
-                }
+                DatabaseConnector.AddCategory(new ItemCategory { Name = "Default Category" });
             }
         }
     }
