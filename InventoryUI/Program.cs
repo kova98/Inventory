@@ -16,7 +16,7 @@ namespace InventoryUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InventoryViewerForm());
+            Application.Run(new ItemListForm());
         }
     }
 }

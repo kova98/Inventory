@@ -37,7 +37,6 @@
             this.companyLabel = new System.Windows.Forms.Label();
             this.companyTextBox = new System.Windows.Forms.TextBox();
             this.categoryLabel = new System.Windows.Forms.Label();
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
             this.itemNameLabel = new System.Windows.Forms.Label();
             this.editItemLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.saveChangesButton = new System.Windows.Forms.Button();
             this.removeSelectedButton = new System.Windows.Forms.Button();
             this.createNewItemButton = new System.Windows.Forms.Button();
+            this.categoryDropDown = new System.Windows.Forms.ComboBox();
             this.editItemPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,12 +71,12 @@
             // editItemPanel
             // 
             this.editItemPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editItemPanel.Controls.Add(this.categoryDropDown);
             this.editItemPanel.Controls.Add(this.priceLabel);
             this.editItemPanel.Controls.Add(this.priceTextBox);
             this.editItemPanel.Controls.Add(this.companyLabel);
             this.editItemPanel.Controls.Add(this.companyTextBox);
             this.editItemPanel.Controls.Add(this.categoryLabel);
-            this.editItemPanel.Controls.Add(this.categoryTextBox);
             this.editItemPanel.Controls.Add(this.itemNameLabel);
             this.editItemPanel.Controls.Add(this.editItemLabel);
             this.editItemPanel.Controls.Add(this.nameLabel);
@@ -133,13 +133,6 @@
             this.categoryLabel.TabIndex = 12;
             this.categoryLabel.Text = "Category";
             // 
-            // categoryTextBox
-            // 
-            this.categoryTextBox.Location = new System.Drawing.Point(7, 164);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(206, 35);
-            this.categoryTextBox.TabIndex = 13;
-            // 
             // itemNameLabel
             // 
             this.itemNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,6 +186,7 @@
             this.saveChangesButton.TabIndex = 10;
             this.saveChangesButton.Text = "Save Changes";
             this.saveChangesButton.UseVisualStyleBackColor = true;
+            this.saveChangesButton.Click += new System.EventHandler(this.saveChangesButton_Click);
             // 
             // removeSelectedButton
             // 
@@ -224,6 +218,15 @@
             this.createNewItemButton.Text = "Create New Item";
             this.createNewItemButton.UseVisualStyleBackColor = true;
             // 
+            // categoryDropDown
+            // 
+            this.categoryDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoryDropDown.FormattingEnabled = true;
+            this.categoryDropDown.Location = new System.Drawing.Point(7, 165);
+            this.categoryDropDown.Name = "categoryDropDown";
+            this.categoryDropDown.Size = new System.Drawing.Size(206, 38);
+            this.categoryDropDown.TabIndex = 18;
+            // 
             // ItemListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -244,6 +247,7 @@
             this.Name = "ItemListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Items";
+            this.Load += new System.EventHandler(this.ItemListForm_Load);
             this.editItemPanel.ResumeLayout(false);
             this.editItemPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -263,11 +267,11 @@
         private System.Windows.Forms.Label companyLabel;
         private System.Windows.Forms.TextBox companyTextBox;
         private System.Windows.Forms.Label categoryLabel;
-        private System.Windows.Forms.TextBox categoryTextBox;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button saveChangesButton;
         private System.Windows.Forms.Button removeSelectedButton;
         private System.Windows.Forms.Button createNewItemButton;
+        private System.Windows.Forms.ComboBox categoryDropDown;
     }
 }
