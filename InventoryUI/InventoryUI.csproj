@@ -51,10 +51,19 @@
     <Compile Include="InventoryViewerForm.Designer.cs">
       <DependentUpon>InventoryViewerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemListForm.Designer.cs">
+      <DependentUpon>ItemListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="InventoryViewerForm.resx">
       <DependentUpon>InventoryViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemListForm.resx">
+      <DependentUpon>ItemListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +74,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\InventoryLibrary.InventoryManager.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryLibrary\InventoryLibrary.csproj">
+      <Project>{5e4f88d8-5fb7-4853-8cc2-e57d3138ca33}</Project>
+      <Name>InventoryLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

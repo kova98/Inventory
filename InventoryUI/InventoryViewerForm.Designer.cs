@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryViewerForm));
             this.categoryLabel = new System.Windows.Forms.Label();
             this.restockButton = new System.Windows.Forms.Button();
-            this.inventoryDataGrid = new System.Windows.Forms.DataGridView();
             this.removeButton = new System.Windows.Forms.Button();
             this.editItemsButton = new System.Windows.Forms.Button();
             this.editCategoriesButton = new System.Windows.Forms.Button();
@@ -42,15 +41,10 @@
             this.searchNameLabel = new System.Windows.Forms.Label();
             this.categoryListBox = new System.Windows.Forms.ListBox();
             this.categoryPanel = new System.Windows.Forms.Panel();
-            this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.companyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGrid)).BeginInit();
+            this.inventoryDataGrid = new System.Windows.Forms.DataGridView();
             this.searchGroupBox.SuspendLayout();
             this.categoryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // categoryLabel
@@ -78,25 +72,7 @@
             this.restockButton.TabIndex = 1;
             this.restockButton.Text = "Restock";
             this.restockButton.UseVisualStyleBackColor = true;
-            // 
-            // inventoryDataGrid
-            // 
-            this.inventoryDataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.inventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.inventoryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdColumn,
-            this.nameColumn,
-            this.categoryColumn,
-            this.companyColumn,
-            this.priceColumn,
-            this.stockColumn});
-            this.inventoryDataGrid.GridColor = System.Drawing.Color.Silver;
-            this.inventoryDataGrid.Location = new System.Drawing.Point(157, 141);
-            this.inventoryDataGrid.Name = "inventoryDataGrid";
-            this.inventoryDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.inventoryDataGrid.RowHeadersVisible = false;
-            this.inventoryDataGrid.Size = new System.Drawing.Size(797, 436);
-            this.inventoryDataGrid.TabIndex = 2;
+            this.restockButton.Click += new System.EventHandler(this.restockButton_Click);
             // 
             // removeButton
             // 
@@ -112,6 +88,7 @@
             this.removeButton.TabIndex = 3;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // editItemsButton
             // 
@@ -127,6 +104,7 @@
             this.editItemsButton.TabIndex = 4;
             this.editItemsButton.Text = "Edit Items";
             this.editItemsButton.UseVisualStyleBackColor = true;
+            this.editItemsButton.Click += new System.EventHandler(this.editItemsButton_Click);
             // 
             // editCategoriesButton
             // 
@@ -142,6 +120,7 @@
             this.editCategoriesButton.TabIndex = 5;
             this.editCategoriesButton.Text = "Edit Categories";
             this.editCategoriesButton.UseVisualStyleBackColor = true;
+            this.editCategoriesButton.Click += new System.EventHandler(this.editCategoriesButton_Click);
             // 
             // searchGroupBox
             // 
@@ -213,57 +192,26 @@
             this.categoryPanel.Size = new System.Drawing.Size(139, 436);
             this.categoryPanel.TabIndex = 8;
             // 
-            // IdColumn
+            // inventoryDataGrid
             // 
-            this.IdColumn.HeaderText = "ID";
-            this.IdColumn.Name = "IdColumn";
-            this.IdColumn.ReadOnly = true;
-            this.IdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.IdColumn.Width = 40;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            // 
-            // categoryColumn
-            // 
-            this.categoryColumn.HeaderText = "Category";
-            this.categoryColumn.Name = "categoryColumn";
-            this.categoryColumn.ReadOnly = true;
-            // 
-            // companyColumn
-            // 
-            this.companyColumn.HeaderText = "Company";
-            this.companyColumn.Name = "companyColumn";
-            this.companyColumn.ReadOnly = true;
-            // 
-            // priceColumn
-            // 
-            this.priceColumn.HeaderText = "Price";
-            this.priceColumn.Name = "priceColumn";
-            this.priceColumn.ReadOnly = true;
-            // 
-            // stockColumn
-            // 
-            this.stockColumn.HeaderText = "Stock";
-            this.stockColumn.Name = "stockColumn";
-            this.stockColumn.ReadOnly = true;
+            this.inventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inventoryDataGrid.Location = new System.Drawing.Point(157, 141);
+            this.inventoryDataGrid.Name = "inventoryDataGrid";
+            this.inventoryDataGrid.Size = new System.Drawing.Size(797, 436);
+            this.inventoryDataGrid.TabIndex = 9;
             // 
             // InventoryViewerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(998, 591);
+            this.ClientSize = new System.Drawing.Size(964, 591);
+            this.Controls.Add(this.inventoryDataGrid);
             this.Controls.Add(this.categoryPanel);
             this.Controls.Add(this.searchGroupBox);
             this.Controls.Add(this.editCategoriesButton);
             this.Controls.Add(this.editItemsButton);
             this.Controls.Add(this.removeButton);
-            this.Controls.Add(this.inventoryDataGrid);
             this.Controls.Add(this.restockButton);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -271,11 +219,11 @@
             this.Name = "InventoryViewerForm";
             this.Text = "Inventory Viewer";
             this.Load += new System.EventHandler(this.InventoryViewerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGrid)).EndInit();
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
             this.categoryPanel.ResumeLayout(false);
             this.categoryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -284,7 +232,6 @@
 
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Button restockButton;
-        private System.Windows.Forms.DataGridView inventoryDataGrid;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button editItemsButton;
         private System.Windows.Forms.Button editCategoriesButton;
@@ -295,12 +242,7 @@
         private System.Windows.Forms.Label searchNameLabel;
         private System.Windows.Forms.ListBox categoryListBox;
         private System.Windows.Forms.Panel categoryPanel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn companyColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockColumn;
+        private System.Windows.Forms.DataGridView inventoryDataGrid;
     }
 }
 

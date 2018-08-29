@@ -7,9 +7,14 @@ using InventoryLibrary.Models;
 
 namespace InventoryLibrary
 {
-    class InventoryManager
+    public class InventoryManager
     {
-        public List<Item> Stock { get; set; } = new List<Item>();
+        public static List<Item> Stock { get; set; } = new List<Item>();
+
+        public InventoryManager()
+        {
+            
+        }
 
     }
 }

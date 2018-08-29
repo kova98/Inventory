@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryLibrary.Models
 {
-    class ItemCategory
+    public class ItemCategory
     {
         /// <summary>
         /// The ID of the item category.
