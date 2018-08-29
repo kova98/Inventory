@@ -41,7 +41,7 @@
             // 
             this.restockItemLabel.Font = new System.Drawing.Font("Segoe UI Light", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restockItemLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.restockItemLabel.Location = new System.Drawing.Point(17, 9);
+            this.restockItemLabel.Location = new System.Drawing.Point(12, 9);
             this.restockItemLabel.Name = "restockItemLabel";
             this.restockItemLabel.Size = new System.Drawing.Size(268, 47);
             this.restockItemLabel.TabIndex = 2;
@@ -53,7 +53,7 @@
             this.itemLabel.AutoSize = true;
             this.itemLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.itemLabel.Location = new System.Drawing.Point(12, 78);
+            this.itemLabel.Location = new System.Drawing.Point(7, 78);
             this.itemLabel.Name = "itemLabel";
             this.itemLabel.Size = new System.Drawing.Size(49, 25);
             this.itemLabel.TabIndex = 12;
@@ -62,7 +62,7 @@
             // amountUpDown
             // 
             this.amountUpDown.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountUpDown.Location = new System.Drawing.Point(229, 107);
+            this.amountUpDown.Location = new System.Drawing.Point(224, 107);
             this.amountUpDown.Maximum = new decimal(new int[] {
             999,
             0,
@@ -90,7 +90,7 @@
             this.restockButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.restockButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restockButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.restockButton.Location = new System.Drawing.Point(17, 151);
+            this.restockButton.Location = new System.Drawing.Point(12, 151);
             this.restockButton.Name = "restockButton";
             this.restockButton.Size = new System.Drawing.Size(268, 62);
             this.restockButton.TabIndex = 18;
@@ -100,7 +100,7 @@
             // itemDropDown
             // 
             this.itemDropDown.FormattingEnabled = true;
-            this.itemDropDown.Location = new System.Drawing.Point(17, 107);
+            this.itemDropDown.Location = new System.Drawing.Point(12, 107);
             this.itemDropDown.Name = "itemDropDown";
             this.itemDropDown.Size = new System.Drawing.Size(206, 38);
             this.itemDropDown.TabIndex = 19;
@@ -110,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(299, 228);
+            this.ClientSize = new System.Drawing.Size(293, 228);
             this.Controls.Add(this.itemDropDown);
             this.Controls.Add(this.restockButton);
             this.Controls.Add(this.amountUpDown);
