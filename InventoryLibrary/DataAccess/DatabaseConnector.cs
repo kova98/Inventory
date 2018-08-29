@@ -73,5 +73,35 @@ namespace InventoryLibrary.DataAccess
                 db.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Edits an item in the database.
+        /// Returns false if the item doesn't exist.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public static bool TryEditItem(Item item)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var itemToEdit = db.Inventory.Find(item);
+                if (itemToEdit != null)
+                {
+                    itemToEdit.Name = item.Name;
+                    itemToEdit.Category = item.Category;
+                    itemToEdit.Company = item.Company;
+                    itemToEdit.Price = item.Price;
+
+                    db.SaveChanges();
+
+                    return true;
+                } 
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        
     }
 }
