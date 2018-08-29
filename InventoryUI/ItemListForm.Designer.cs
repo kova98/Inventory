@@ -32,16 +32,16 @@
             this.ItemsLabel = new System.Windows.Forms.Label();
             this.itemsListBox = new System.Windows.Forms.ListBox();
             this.editItemPanel = new System.Windows.Forms.Panel();
-            this.editItemLabel = new System.Windows.Forms.Label();
-            this.itemNameLabel = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.categoryLabel = new System.Windows.Forms.Label();
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
-            this.companyLabel = new System.Windows.Forms.Label();
-            this.companyTextBox = new System.Windows.Forms.TextBox();
             this.priceLabel = new System.Windows.Forms.Label();
             this.priceTextBox = new System.Windows.Forms.TextBox();
+            this.companyLabel = new System.Windows.Forms.Label();
+            this.companyTextBox = new System.Windows.Forms.TextBox();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.categoryTextBox = new System.Windows.Forms.TextBox();
+            this.itemNameLabel = new System.Windows.Forms.Label();
+            this.editItemLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.saveChangesButton = new System.Windows.Forms.Button();
             this.removeSelectedButton = new System.Windows.Forms.Button();
             this.createNewItemButton = new System.Windows.Forms.Button();
@@ -86,62 +86,23 @@
             this.editItemPanel.Size = new System.Drawing.Size(226, 340);
             this.editItemPanel.TabIndex = 9;
             // 
-            // editItemLabel
+            // priceLabel
             // 
-            this.editItemLabel.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editItemLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.editItemLabel.Location = new System.Drawing.Point(3, -1);
-            this.editItemLabel.Name = "editItemLabel";
-            this.editItemLabel.Size = new System.Drawing.Size(218, 44);
-            this.editItemLabel.TabIndex = 4;
-            this.editItemLabel.Text = "Edit Item";
-            this.editItemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.priceLabel.AutoSize = true;
+            this.priceLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.priceLabel.Location = new System.Drawing.Point(5, 268);
+            this.priceLabel.Name = "priceLabel";
+            this.priceLabel.Size = new System.Drawing.Size(54, 25);
+            this.priceLabel.TabIndex = 16;
+            this.priceLabel.Text = "Price";
             // 
-            // itemNameLabel
+            // priceTextBox
             // 
-            this.itemNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemNameLabel.Location = new System.Drawing.Point(3, 43);
-            this.itemNameLabel.Name = "itemNameLabel";
-            this.itemNameLabel.Size = new System.Drawing.Size(218, 27);
-            this.itemNameLabel.TabIndex = 5;
-            this.itemNameLabel.Text = "<item name>";
-            this.itemNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(7, 98);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(206, 35);
-            this.nameTextBox.TabIndex = 11;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.nameLabel.Location = new System.Drawing.Point(5, 70);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(62, 25);
-            this.nameLabel.TabIndex = 10;
-            this.nameLabel.Text = "Name";
-            // 
-            // categoryLabel
-            // 
-            this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.categoryLabel.Location = new System.Drawing.Point(5, 136);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(88, 25);
-            this.categoryLabel.TabIndex = 12;
-            this.categoryLabel.Text = "Category";
-            // 
-            // categoryTextBox
-            // 
-            this.categoryTextBox.Location = new System.Drawing.Point(7, 164);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(206, 35);
-            this.categoryTextBox.TabIndex = 13;
+            this.priceTextBox.Location = new System.Drawing.Point(7, 296);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.Size = new System.Drawing.Size(206, 35);
+            this.priceTextBox.TabIndex = 17;
             // 
             // companyLabel
             // 
@@ -161,23 +122,62 @@
             this.companyTextBox.Size = new System.Drawing.Size(206, 35);
             this.companyTextBox.TabIndex = 15;
             // 
-            // priceLabel
+            // categoryLabel
             // 
-            this.priceLabel.AutoSize = true;
-            this.priceLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.priceLabel.Location = new System.Drawing.Point(5, 268);
-            this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(54, 25);
-            this.priceLabel.TabIndex = 16;
-            this.priceLabel.Text = "Price";
+            this.categoryLabel.AutoSize = true;
+            this.categoryLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.categoryLabel.Location = new System.Drawing.Point(5, 136);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(88, 25);
+            this.categoryLabel.TabIndex = 12;
+            this.categoryLabel.Text = "Category";
             // 
-            // priceTextBox
+            // categoryTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(7, 296);
-            this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(206, 35);
-            this.priceTextBox.TabIndex = 17;
+            this.categoryTextBox.Location = new System.Drawing.Point(7, 164);
+            this.categoryTextBox.Name = "categoryTextBox";
+            this.categoryTextBox.Size = new System.Drawing.Size(206, 35);
+            this.categoryTextBox.TabIndex = 13;
+            // 
+            // itemNameLabel
+            // 
+            this.itemNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNameLabel.Location = new System.Drawing.Point(3, 43);
+            this.itemNameLabel.Name = "itemNameLabel";
+            this.itemNameLabel.Size = new System.Drawing.Size(218, 27);
+            this.itemNameLabel.TabIndex = 5;
+            this.itemNameLabel.Text = "<item name>";
+            this.itemNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // editItemLabel
+            // 
+            this.editItemLabel.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editItemLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.editItemLabel.Location = new System.Drawing.Point(3, -1);
+            this.editItemLabel.Name = "editItemLabel";
+            this.editItemLabel.Size = new System.Drawing.Size(218, 44);
+            this.editItemLabel.TabIndex = 4;
+            this.editItemLabel.Text = "Edit Item";
+            this.editItemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.nameLabel.Location = new System.Drawing.Point(5, 70);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(62, 25);
+            this.nameLabel.TabIndex = 10;
+            this.nameLabel.Text = "Name";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(7, 98);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(206, 35);
+            this.nameTextBox.TabIndex = 11;
             // 
             // saveChangesButton
             // 
@@ -237,11 +237,12 @@
             this.Controls.Add(this.itemsListBox);
             this.Controls.Add(this.ItemsLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.MaximizeBox = false;
             this.Name = "ItemListForm";
-            this.Text = "Item List";
+            this.Text = "Items";
             this.editItemPanel.ResumeLayout(false);
             this.editItemPanel.PerformLayout();
             this.ResumeLayout(false);

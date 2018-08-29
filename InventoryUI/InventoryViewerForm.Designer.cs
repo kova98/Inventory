@@ -194,6 +194,7 @@
             // 
             // inventoryDataGrid
             // 
+            this.inventoryDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.inventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventoryDataGrid.Location = new System.Drawing.Point(157, 141);
             this.inventoryDataGrid.Name = "inventoryDataGrid";

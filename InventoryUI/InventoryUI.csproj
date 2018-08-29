@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryListForm.Designer.cs">
+      <DependentUpon>CategoryListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryViewerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CategoryListForm.resx">
+      <DependentUpon>CategoryListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InventoryViewerForm.resx">
       <DependentUpon>InventoryViewerForm.cs</DependentUpon>
     </EmbeddedResource>
