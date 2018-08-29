@@ -229,7 +229,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(497, 630);
+            this.ClientSize = new System.Drawing.Size(496, 626);
             this.Controls.Add(this.createNewItemButton);
             this.Controls.Add(this.removeSelectedButton);
             this.Controls.Add(this.saveChangesButton);
@@ -242,6 +242,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.MaximizeBox = false;
             this.Name = "ItemListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Items";
             this.editItemPanel.ResumeLayout(false);
             this.editItemPanel.PerformLayout();
