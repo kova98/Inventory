@@ -56,6 +56,7 @@
             this.createNewCategoryButton.TabIndex = 18;
             this.createNewCategoryButton.Text = "Create New Category";
             this.createNewCategoryButton.UseVisualStyleBackColor = true;
+            this.createNewCategoryButton.Click += new System.EventHandler(this.createNewCategoryButton_Click);
             // 
             // removeSelectedButton
             // 
@@ -71,6 +72,7 @@
             this.removeSelectedButton.TabIndex = 17;
             this.removeSelectedButton.Text = "Remove Selected";
             this.removeSelectedButton.UseVisualStyleBackColor = true;
+            this.removeSelectedButton.Click += new System.EventHandler(this.removeSelectedButton_Click);
             // 
             // saveChangesButton
             // 
@@ -86,6 +88,7 @@
             this.saveChangesButton.TabIndex = 16;
             this.saveChangesButton.Text = "Save Changes";
             this.saveChangesButton.UseVisualStyleBackColor = true;
+            this.saveChangesButton.Click += new System.EventHandler(this.saveChangesButton_Click);
             // 
             // editCategoryPanel
             // 
@@ -146,6 +149,7 @@
             this.categoriesListBox.Name = "categoriesListBox";
             this.categoriesListBox.Size = new System.Drawing.Size(223, 364);
             this.categoriesListBox.TabIndex = 14;
+            this.categoriesListBox.SelectedIndexChanged += new System.EventHandler(this.categoriesListBox_SelectedIndexChanged);
             // 
             // categoriesLabel
             // 
@@ -177,6 +181,7 @@
             this.Name = "categoryListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Categories";
+            this.Load += new System.EventHandler(this.categoryListForm_Load);
             this.editCategoryPanel.ResumeLayout(false);
             this.editCategoryPanel.PerformLayout();
             this.ResumeLayout(false);

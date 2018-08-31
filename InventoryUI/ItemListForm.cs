@@ -21,8 +21,6 @@ namespace InventoryUI
 
         private void ItemListForm_Load(object sender, EventArgs e)
         {
-            InventoryLibrary.InventoryManager.CreateDefaultCategory();
-
             WireUpLists();
             ResetForm();
         }
@@ -42,83 +40,85 @@ namespace InventoryUI
                 };
 
                 DatabaseConnector.TryEditItem(itemToEdit);
-                WireUpLists();
-                ResetForm();
+                WireUpLists(item);
+                //ResetForm();
             }
         }
 
         private void ResetForm()
         {
             nameTextBox.Text = "";
-            categoryDropDown.SelectedItem = categoryDropDown.Items[0];
             companyTextBox.Text = "";
             priceTextBox.Text = "";
             itemNameLabel.Text = "";
+
+            if (categoryDropDown.Items.Count != 0)
+            {
+                categoryDropDown.SelectedItem = categoryDropDown.Items[0];
+            }
+
+            itemsListBox.SelectedItem = null;
         }
 
-        private void WireUpLists()
+        private void WireUpLists(Item itemToSelect = null)
         {
+            var itemSelected = (Item)itemsListBox.SelectedItem;
+
+            if (itemToSelect != null)
+            {
+                var index = itemsListBox.Items.IndexOf(itemToSelect);
+                itemsListBox.SelectedItem = itemsListBox.Items[index];
+            }
+
             categoryDropDown.DataSource = null;
             categoryDropDown.DataSource = DatabaseConnector.Categories;
             categoryDropDown.DisplayMember = "Name";
 
             itemsListBox.DataSource = null;
             itemsListBox.DataSource = DatabaseConnector.Items;
-            itemsListBox.DisplayMember = "Name";
-            itemsListBox.SelectedItem = null;
+            itemsListBox.DisplayMember = "Name";    
         }
 
         private bool IsFormValid()
         {
-            bool result = true;
-
             if (nameTextBox.Text.Length == 0)
             {
-                result = false;
-            }
-
-            if (priceTextBox.Text.Length == 0)
-            {
-                result = false;
-            }
-
-            if (categoryDropDown.SelectedItem == null)
-            {
-                result = false;
-            }
-
-            if (companyTextBox.Text.Length == 0)
-            {
-                result = false;
-            }
-
-            if (!decimal.TryParse(priceTextBox.Text, out var num))
-            {
-                result = false;
-            }
-            
-            if (result == false)
-            {
-                MessageBox.Show("Invalid form. \nPlease enter valid values.",
+                MessageBox.Show("Please enter a name.",
                                     "Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
+
+                return false;
             }
 
-            return result;
+            if (priceTextBox.Text.Length == 0 || !decimal.TryParse(priceTextBox.Text, out var num))
+            {
+                MessageBox.Show("Invalid price. \nPlease enter a valid value.",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            return true;
         }
 
         private void removeSelectedButton_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Are you sure you want to remove the selected item? \n" +
+            var item = (Item)itemsListBox.SelectedItem;
+            if (item != null)
+            {
+                var confirm = MessageBox.Show("Are you sure you want to remove the selected item? \n" +
                                           "This will permanently delete it from the database.",
                                           "Delete item",
                                           MessageBoxButtons.YesNo);
-            if (confirm == DialogResult.Yes)
-            {
-                DatabaseConnector.DeleteItem((Item)itemsListBox.SelectedItem);
-                WireUpLists();
-            }
+                if (confirm == DialogResult.Yes)
+                {
+                    DatabaseConnector.DeleteItem(item);
+                    WireUpLists();
+                }
+            }    
         }
 
         private void itemsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,21 +142,21 @@ namespace InventoryUI
 
         private void createNewItemButton_Click(object sender, EventArgs e)
         {
-            if (IsFormValid())
+            var item = new Item
             {
-                var item = new Item
-                {
-                    Name = nameTextBox.Text,
-                    Category = (ItemCategory)categoryDropDown.SelectedItem,
-                    Company = companyTextBox.Text,
-                    Price = decimal.Parse(priceTextBox.Text)
-                };
+                Name = "New Item",
+                Category = DatabaseConnector.Categories.FirstOrDefault(),
+                Company = "",
+                Price = 0
+            };
 
-                DatabaseConnector.AddItem(item);
+            DatabaseConnector.AddItem(item);
 
-                ResetForm();
-                WireUpLists();
-            }  
+            ResetForm();
+            WireUpLists();
+
+            int lastIndex = itemsListBox.Items.Count - 1;
+            itemsListBox.SelectedItem = itemsListBox.Items[lastIndex];
         }
     }
 }
