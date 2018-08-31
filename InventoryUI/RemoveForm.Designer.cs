@@ -34,16 +34,19 @@
             this.amountUpDown = new System.Windows.Forms.NumericUpDown();
             this.itemLabel = new System.Windows.Forms.Label();
             this.restockItemLabel = new System.Windows.Forms.Label();
+            this.itemAmountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.amountUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // itemDropDown
             // 
+            this.itemDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemDropDown.FormattingEnabled = true;
             this.itemDropDown.Location = new System.Drawing.Point(12, 107);
             this.itemDropDown.Name = "itemDropDown";
-            this.itemDropDown.Size = new System.Drawing.Size(206, 38);
+            this.itemDropDown.Size = new System.Drawing.Size(154, 38);
             this.itemDropDown.TabIndex = 24;
+            this.itemDropDown.SelectedIndexChanged += new System.EventHandler(this.itemDropDown_SelectedIndexChanged);
             // 
             // removeButton
             // 
@@ -59,6 +62,7 @@
             this.removeButton.TabIndex = 23;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // amountUpDown
             // 
@@ -105,12 +109,22 @@
             this.restockItemLabel.Text = "Remove Item";
             this.restockItemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // itemAmountLabel
+            // 
+            this.itemAmountLabel.AutoSize = true;
+            this.itemAmountLabel.Location = new System.Drawing.Point(172, 110);
+            this.itemAmountLabel.Name = "itemAmountLabel";
+            this.itemAmountLabel.Size = new System.Drawing.Size(46, 30);
+            this.itemAmountLabel.TabIndex = 25;
+            this.itemAmountLabel.Text = "999";
+            // 
             // RemoveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(292, 229);
+            this.ClientSize = new System.Drawing.Size(292, 225);
+            this.Controls.Add(this.itemAmountLabel);
             this.Controls.Add(this.itemDropDown);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.amountUpDown);
@@ -122,6 +136,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "RemoveForm";
             this.Text = "Remove";
+            this.Load += new System.EventHandler(this.RemoveForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.amountUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -135,5 +150,6 @@
         private System.Windows.Forms.NumericUpDown amountUpDown;
         private System.Windows.Forms.Label itemLabel;
         private System.Windows.Forms.Label restockItemLabel;
+        private System.Windows.Forms.Label itemAmountLabel;
     }
 }

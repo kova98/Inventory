@@ -34,6 +34,7 @@
             this.amountUpDown = new System.Windows.Forms.NumericUpDown();
             this.restockButton = new System.Windows.Forms.Button();
             this.itemDropDown = new System.Windows.Forms.ComboBox();
+            this.itemAmountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.amountUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,21 +97,34 @@
             this.restockButton.TabIndex = 18;
             this.restockButton.Text = "Restock";
             this.restockButton.UseVisualStyleBackColor = true;
+            this.restockButton.Click += new System.EventHandler(this.restockButton_Click);
             // 
             // itemDropDown
             // 
+            this.itemDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemDropDown.FormattingEnabled = true;
             this.itemDropDown.Location = new System.Drawing.Point(12, 107);
             this.itemDropDown.Name = "itemDropDown";
-            this.itemDropDown.Size = new System.Drawing.Size(206, 38);
+            this.itemDropDown.Size = new System.Drawing.Size(154, 38);
             this.itemDropDown.TabIndex = 19;
+            this.itemDropDown.SelectedIndexChanged += new System.EventHandler(this.itemDropDown_SelectedIndexChanged);
+            // 
+            // itemAmountLabel
+            // 
+            this.itemAmountLabel.AutoSize = true;
+            this.itemAmountLabel.Location = new System.Drawing.Point(172, 110);
+            this.itemAmountLabel.Name = "itemAmountLabel";
+            this.itemAmountLabel.Size = new System.Drawing.Size(46, 30);
+            this.itemAmountLabel.TabIndex = 26;
+            this.itemAmountLabel.Text = "999";
             // 
             // RestockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(293, 228);
+            this.ClientSize = new System.Drawing.Size(293, 226);
+            this.Controls.Add(this.itemAmountLabel);
             this.Controls.Add(this.itemDropDown);
             this.Controls.Add(this.restockButton);
             this.Controls.Add(this.amountUpDown);
@@ -123,6 +137,7 @@
             this.Name = "RestockForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Restock";
+            this.Load += new System.EventHandler(this.RestockForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.amountUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,5 +151,6 @@
         private System.Windows.Forms.NumericUpDown amountUpDown;
         private System.Windows.Forms.Button restockButton;
         private System.Windows.Forms.ComboBox itemDropDown;
+        private System.Windows.Forms.Label itemAmountLabel;
     }
 }

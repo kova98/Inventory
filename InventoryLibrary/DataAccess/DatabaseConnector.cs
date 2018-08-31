@@ -108,6 +108,7 @@ namespace InventoryLibrary.DataAccess
                     itemToEdit.Category = item.Category;
                     itemToEdit.Company = item.Company;
                     itemToEdit.Price = item.Price;
+                    itemToEdit.Amount = item.Amount;
 
                     db.SaveChanges();
 
