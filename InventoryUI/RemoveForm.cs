@@ -33,8 +33,6 @@ namespace InventoryUI
             itemDropDown.DataSource = null;
             itemDropDown.DataSource = DatabaseConnector.Items;
             itemDropDown.DisplayMember = "Name";
-
-            mainForm.UpdateItemList();
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -46,8 +44,9 @@ namespace InventoryUI
             {
                 DatabaseConnector.RemoveItem(item, amount);
 
-                WireUpList();
-                itemAmountLabel.Text = item.Amount.ToString();
+                itemAmountLabel.Text = (item.Amount - amount).ToString();
+
+                mainForm.UpdateItemList();
             }
 
         }

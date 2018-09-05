@@ -47,6 +47,8 @@ namespace InventoryUI
                 DatabaseConnector.TryEditItem(item);
 
                 itemAmountLabel.Text = item.Amount.ToString();
+
+                mainForm.UpdateItemList();
             }
         }
 
