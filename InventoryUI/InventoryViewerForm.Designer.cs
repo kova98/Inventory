@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryViewerForm));
             this.categoryLabel = new System.Windows.Forms.Label();
             this.restockButton = new System.Windows.Forms.Button();
@@ -35,8 +36,6 @@
             this.editItemsButton = new System.Windows.Forms.Button();
             this.editCategoriesButton = new System.Windows.Forms.Button();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
-            this.searchCategoryTextBox = new System.Windows.Forms.TextBox();
-            this.searchCategoryLabel = new System.Windows.Forms.Label();
             this.searchNameTextBox = new System.Windows.Forms.TextBox();
             this.searchNameLabel = new System.Windows.Forms.Label();
             this.categoryListBox = new System.Windows.Forms.ListBox();
@@ -49,14 +48,14 @@
             // 
             // categoryLabel
             // 
-            this.categoryLabel.AutoSize = true;
             this.categoryLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.categoryLabel.Location = new System.Drawing.Point(1, 0);
+            this.categoryLabel.Location = new System.Drawing.Point(-1, -1);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(133, 40);
+            this.categoryLabel.Size = new System.Drawing.Size(158, 40);
             this.categoryLabel.TabIndex = 0;
             this.categoryLabel.Text = "Category";
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // restockButton
             // 
@@ -68,7 +67,7 @@
             this.restockButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.restockButton.Location = new System.Drawing.Point(12, 22);
             this.restockButton.Name = "restockButton";
-            this.restockButton.Size = new System.Drawing.Size(139, 113);
+            this.restockButton.Size = new System.Drawing.Size(158, 74);
             this.restockButton.TabIndex = 1;
             this.restockButton.Text = "Restock";
             this.restockButton.UseVisualStyleBackColor = true;
@@ -82,9 +81,9 @@
             this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.removeButton.Location = new System.Drawing.Point(157, 22);
+            this.removeButton.Location = new System.Drawing.Point(176, 22);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(139, 113);
+            this.removeButton.Size = new System.Drawing.Size(149, 74);
             this.removeButton.TabIndex = 3;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
@@ -98,9 +97,9 @@
             this.editItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editItemsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editItemsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.editItemsButton.Location = new System.Drawing.Point(302, 22);
+            this.editItemsButton.Location = new System.Drawing.Point(331, 22);
             this.editItemsButton.Name = "editItemsButton";
-            this.editItemsButton.Size = new System.Drawing.Size(139, 113);
+            this.editItemsButton.Size = new System.Drawing.Size(148, 74);
             this.editItemsButton.TabIndex = 4;
             this.editItemsButton.Text = "Edit Items";
             this.editItemsButton.UseVisualStyleBackColor = true;
@@ -114,9 +113,9 @@
             this.editCategoriesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editCategoriesButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCategoriesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.editCategoriesButton.Location = new System.Drawing.Point(447, 22);
+            this.editCategoriesButton.Location = new System.Drawing.Point(485, 22);
             this.editCategoriesButton.Name = "editCategoriesButton";
-            this.editCategoriesButton.Size = new System.Drawing.Size(181, 113);
+            this.editCategoriesButton.Size = new System.Drawing.Size(143, 74);
             this.editCategoriesButton.TabIndex = 5;
             this.editCategoriesButton.Text = "Edit Categories";
             this.editCategoriesButton.UseVisualStyleBackColor = true;
@@ -124,36 +123,16 @@
             // 
             // searchGroupBox
             // 
-            this.searchGroupBox.Controls.Add(this.searchCategoryTextBox);
-            this.searchGroupBox.Controls.Add(this.searchCategoryLabel);
             this.searchGroupBox.Controls.Add(this.searchNameTextBox);
             this.searchGroupBox.Controls.Add(this.searchNameLabel);
             this.searchGroupBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.searchGroupBox.Location = new System.Drawing.Point(634, 8);
             this.searchGroupBox.Name = "searchGroupBox";
-            this.searchGroupBox.Size = new System.Drawing.Size(320, 127);
+            this.searchGroupBox.Size = new System.Drawing.Size(320, 88);
             this.searchGroupBox.TabIndex = 6;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Search";
-            // 
-            // searchCategoryTextBox
-            // 
-            this.searchCategoryTextBox.Location = new System.Drawing.Point(108, 84);
-            this.searchCategoryTextBox.Name = "searchCategoryTextBox";
-            this.searchCategoryTextBox.Size = new System.Drawing.Size(206, 35);
-            this.searchCategoryTextBox.TabIndex = 4;
-            // 
-            // searchCategoryLabel
-            // 
-            this.searchCategoryLabel.AutoSize = true;
-            this.searchCategoryLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchCategoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.searchCategoryLabel.Location = new System.Drawing.Point(6, 84);
-            this.searchCategoryLabel.Name = "searchCategoryLabel";
-            this.searchCategoryLabel.Size = new System.Drawing.Size(96, 30);
-            this.searchCategoryLabel.TabIndex = 3;
-            this.searchCategoryLabel.Text = "Category";
             // 
             // searchNameTextBox
             // 
@@ -179,26 +158,41 @@
             this.categoryListBox.ItemHeight = 30;
             this.categoryListBox.Location = new System.Drawing.Point(-1, 49);
             this.categoryListBox.Name = "categoryListBox";
-            this.categoryListBox.Size = new System.Drawing.Size(139, 394);
+            this.categoryListBox.Size = new System.Drawing.Size(158, 394);
             this.categoryListBox.TabIndex = 7;
+            this.categoryListBox.SelectedIndexChanged += new System.EventHandler(this.categoryListBox_SelectedIndexChanged);
             // 
             // categoryPanel
             // 
             this.categoryPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.categoryPanel.Controls.Add(this.categoryListBox);
             this.categoryPanel.Controls.Add(this.categoryLabel);
-            this.categoryPanel.Location = new System.Drawing.Point(12, 141);
+            this.categoryPanel.Location = new System.Drawing.Point(12, 102);
             this.categoryPanel.Name = "categoryPanel";
-            this.categoryPanel.Size = new System.Drawing.Size(139, 436);
+            this.categoryPanel.Size = new System.Drawing.Size(158, 436);
             this.categoryPanel.TabIndex = 8;
             // 
             // inventoryDataGrid
             // 
+            this.inventoryDataGrid.AllowUserToAddRows = false;
+            this.inventoryDataGrid.AllowUserToDeleteRows = false;
+            this.inventoryDataGrid.AllowUserToResizeRows = false;
             this.inventoryDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.inventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.inventoryDataGrid.Location = new System.Drawing.Point(157, 141);
+            this.inventoryDataGrid.Location = new System.Drawing.Point(176, 102);
             this.inventoryDataGrid.Name = "inventoryDataGrid";
-            this.inventoryDataGrid.Size = new System.Drawing.Size(797, 436);
+            this.inventoryDataGrid.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventoryDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.inventoryDataGrid.RowHeadersVisible = false;
+            this.inventoryDataGrid.RowTemplate.Height = 35;
+            this.inventoryDataGrid.Size = new System.Drawing.Size(778, 436);
             this.inventoryDataGrid.TabIndex = 9;
             // 
             // InventoryViewerForm
@@ -206,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(964, 591);
+            this.ClientSize = new System.Drawing.Size(964, 549);
             this.Controls.Add(this.inventoryDataGrid);
             this.Controls.Add(this.categoryPanel);
             this.Controls.Add(this.searchGroupBox);
@@ -224,7 +218,6 @@
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
             this.categoryPanel.ResumeLayout(false);
-            this.categoryPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGrid)).EndInit();
             this.ResumeLayout(false);
 
@@ -238,8 +231,6 @@
         private System.Windows.Forms.Button editItemsButton;
         private System.Windows.Forms.Button editCategoriesButton;
         private System.Windows.Forms.GroupBox searchGroupBox;
-        private System.Windows.Forms.TextBox searchCategoryTextBox;
-        private System.Windows.Forms.Label searchCategoryLabel;
         private System.Windows.Forms.TextBox searchNameTextBox;
         private System.Windows.Forms.Label searchNameLabel;
         private System.Windows.Forms.ListBox categoryListBox;

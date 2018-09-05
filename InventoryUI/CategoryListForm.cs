@@ -14,9 +14,13 @@ namespace InventoryUI
 {
     public partial class categoryListForm : Form
     {
-        public categoryListForm()
+        IMainForm mainForm;
+
+        public categoryListForm(IMainForm form)
         {
             InitializeComponent();
+
+            mainForm = form;
         }
 
         private void categoryListForm_Load(object sender, EventArgs e)
@@ -29,6 +33,8 @@ namespace InventoryUI
             categoriesListBox.DataSource = null;
             categoriesListBox.DataSource = DatabaseConnector.Categories;
             categoriesListBox.DisplayMember = "Name";
+
+            mainForm.UpdateCategoryList();
         }
 
         private void saveChangesButton_Click(object sender, EventArgs e)

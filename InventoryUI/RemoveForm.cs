@@ -14,9 +14,13 @@ namespace InventoryUI
 {
     public partial class RemoveForm : Form
     {
-        public RemoveForm()
+        IMainForm mainForm;
+
+        public RemoveForm(IMainForm form)
         {
             InitializeComponent();
+
+            mainForm = form;
         }
 
         private void RemoveForm_Load(object sender, EventArgs e)
@@ -29,6 +33,8 @@ namespace InventoryUI
             itemDropDown.DataSource = null;
             itemDropDown.DataSource = DatabaseConnector.Items;
             itemDropDown.DisplayMember = "Name";
+
+            mainForm.UpdateItemList();
         }
 
         private void removeButton_Click(object sender, EventArgs e)

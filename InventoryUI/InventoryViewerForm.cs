@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventoryLibrary;
+using InventoryLibrary.DataAccess;
 using InventoryLibrary.Models;
 
 namespace InventoryUI
 {
-    public partial class InventoryViewerForm : Form
+    public partial class InventoryViewerForm : Form, IMainForm
     {
+        const string categoryName = "CategoryName";
+
         public InventoryViewerForm()
         {
             InitializeComponent();
@@ -21,33 +24,99 @@ namespace InventoryUI
 
         private void InventoryViewerForm_Load(object sender, EventArgs e)
         {
-            searchNameTextBox.TextChanged += SearchBox_OnTextChanged;
-            searchCategoryTextBox.TextChanged += SearchBox_OnTextChanged;
+            WireUpDataGrid();
+
+            PopulateCategoryList();
         }
 
-        private void SearchBox_OnTextChanged(object sender, EventArgs e)
+        private void WireUpDataGrid()
         {
-            // TODO: Filter items based on the name and category in the boxes.
+            inventoryDataGrid.DataSource = null;
+            inventoryDataGrid.DataSource = DatabaseConnector.Items;
+
+            SetDataGridSettings();
+        }
+
+        private void SetDataGridSettings()
+        {
+            inventoryDataGrid.Columns["Name"].Width = 240;
+            inventoryDataGrid.Columns["Category"].Width = 190;
+            inventoryDataGrid.Columns["Id"].Width = 50;
+
+            inventoryDataGrid.Columns["Category"].DataPropertyName = categoryName;
+            inventoryDataGrid.Columns.Remove("CategoryName");
+
+            inventoryDataGrid.Columns["Amount"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void PopulateCategoryList()
+        {
+            categoryListBox.Items.Clear();
+
+            categoryListBox.Items.Add(new ItemCategory { Name = "All Categories" });
+
+            foreach (var cat in DatabaseConnector.Categories)
+            {
+                categoryListBox.Items.Add(cat);
+            }
+
+            categoryListBox.DisplayMember = "Name";
         }
 
         private void editCategoriesButton_Click(object sender, EventArgs e)
         {
-            // TODO: Open the Edit Categories form.
+            var form = new categoryListForm(this);
+            form.Show();
         }
 
         private void editItemsButton_Click(object sender, EventArgs e)
         {
-            // TODO: Open the Edit Items form.
+            var form = new ItemListForm(this);
+            form.Show();
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            // TODO: Open the Remove form.
+            var form = new RemoveForm(this);
+            form.Show();
         }
 
         private void restockButton_Click(object sender, EventArgs e)
         {
-            // TODO: Open the Restock form.
+            var form = new RestockForm(this);
+            form.Show();
+        }
+
+        private void categoryListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var category = (ItemCategory)categoryListBox.SelectedItem;
+
+            if (category.Name != "All Categories")
+            {
+                var filtered = DatabaseConnector.Items.Where(x => x.CategoryName == category.Name);
+
+                inventoryDataGrid.DataSource = null;
+                inventoryDataGrid.Columns.Clear();
+                inventoryDataGrid.DataSource = filtered.ToList();
+
+                SetDataGridSettings();
+            }
+            else
+            {
+                inventoryDataGrid.Columns.Clear();
+                inventoryDataGrid.DataSource = DatabaseConnector.Items;
+                SetDataGridSettings();
+            }   
+        }
+
+        public void UpdateCategoryList()
+        {
+            PopulateCategoryList();
+        }
+
+        public void UpdateItemList()
+        {
+            WireUpDataGrid();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace InventoryLibrary.Models
         /// <summary>
         /// The category of the item.
         /// </summary>
-        public ItemCategory Category { get; set; }
+        public virtual ItemCategory Category { get; set; }
 
         /// <summary>
         /// The company that produced the item.
@@ -37,5 +37,23 @@ namespace InventoryLibrary.Models
         /// The amount of items available.
         /// </summary>
         public int Amount { get; set; }
+
+        /// <summary>
+        /// The category name.
+        /// </summary>
+        public string CategoryName
+        {
+            get
+            {
+                if (Category != null) 
+                {
+                    return Category.Name;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
     }
 }

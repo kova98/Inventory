@@ -54,6 +54,7 @@
     <Compile Include="CategoryListForm.Designer.cs">
       <DependentUpon>CategoryListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMainForm.cs" />
     <Compile Include="InventoryViewerForm.cs">
       <SubType>Form</SubType>
     </Compile>

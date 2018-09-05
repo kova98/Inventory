@@ -14,9 +14,12 @@ namespace InventoryUI
 {
     public partial class ItemListForm : Form
     {
-        public ItemListForm()
+        IMainForm mainForm;
+        public ItemListForm(IMainForm form)
         {
             InitializeComponent();
+
+            mainForm = form;
         }
 
         private void ItemListForm_Load(object sender, EventArgs e)
@@ -76,7 +79,9 @@ namespace InventoryUI
 
             itemsListBox.DataSource = null;
             itemsListBox.DataSource = DatabaseConnector.Items;
-            itemsListBox.DisplayMember = "Name";    
+            itemsListBox.DisplayMember = "Name";
+
+            mainForm.UpdateItemList();
         }
 
         private bool IsFormValid()
@@ -134,10 +139,23 @@ namespace InventoryUI
 
                 if (item.Category != null)
                 {
-                    var index = categoryDropDown.Items.IndexOf(item.Category);
-                    categoryDropDown.SelectedItem = categoryDropDown.Items[index];
+                    categoryDropDown.SelectedItem = GetCategoryById(categoryDropDown, item.Category.Id);
                 }
             }
+        }
+
+        private object GetCategoryById(ComboBox box, int id)
+        {
+            foreach (object obj in box.Items)
+            {
+                var category = (ItemCategory)obj;
+                if (category.Id == id)
+                {
+                    return category;
+                }
+            }
+
+            return null;
         }
 
         private void createNewItemButton_Click(object sender, EventArgs e)

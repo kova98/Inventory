@@ -27,7 +27,7 @@ namespace InventoryLibrary.DataAccess
             {
                 using (var db = new DatabaseContext())
                 {
-                    return db.Items.ToList();
+                    return db.Items.Include(x => x.Category).ToList();
                 }
             }
         }
@@ -105,11 +105,16 @@ namespace InventoryLibrary.DataAccess
                 if (itemToEdit != null)
                 {
                     itemToEdit.Name = item.Name;
-                    itemToEdit.Category = item.Category;
                     itemToEdit.Company = item.Company;
                     itemToEdit.Price = item.Price;
                     itemToEdit.Amount = item.Amount;
 
+                    if (item.Category == null)
+                    {
+                        itemToEdit.Category = Categories.FirstOrDefault(x => x.Id == item.Category.Id);
+                    }
+
+                    db.Entry(itemToEdit).State = EntityState.Modified;
                     db.SaveChanges();
 
                     return true;
@@ -132,6 +137,7 @@ namespace InventoryLibrary.DataAccess
                 if (category != null)
                 {
                     db.Categories.Add(category);
+                    db.Entry(category).State = EntityState.Added;
                     db.SaveChanges();
                 }
             }
@@ -177,6 +183,8 @@ namespace InventoryLibrary.DataAccess
                 if (categoryToFind != null)
                 {
                     categoryToFind.Name = category.Name;
+
+                    db.Entry(categoryToFind).State = EntityState.Modified;
                     db.SaveChanges();
 
                     return true;

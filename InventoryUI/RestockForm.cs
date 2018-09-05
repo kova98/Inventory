@@ -14,9 +14,13 @@ namespace InventoryUI
 {
     public partial class RestockForm : Form
     {
-        public RestockForm()
+        IMainForm mainForm;
+
+        public RestockForm(IMainForm form)
         {
             InitializeComponent();
+
+            mainForm = form;
         }
 
         private void RestockForm_Load(object sender, EventArgs e)
