@@ -16,6 +16,7 @@ namespace InventoryUI
     public partial class InventoryViewerForm : Form, IMainForm
     {
         const string categoryName = "CategoryName";
+        List<Item> filtered = new List<Item>();
 
         public InventoryViewerForm()
         {
@@ -25,6 +26,8 @@ namespace InventoryUI
         private void InventoryViewerForm_Load(object sender, EventArgs e)
         {
             WireUpDataGrid();
+
+            filtered = DatabaseConnector.Items;
 
             PopulateCategoryList();
         }
@@ -93,11 +96,11 @@ namespace InventoryUI
 
             if (category.Name != "All Categories")
             {
-                var filtered = DatabaseConnector.Items.Where(x => x.CategoryName == category.Name);
+                filtered = DatabaseConnector.Items.Where(x => x.CategoryName == category.Name).ToList();
 
                 inventoryDataGrid.DataSource = null;
                 inventoryDataGrid.Columns.Clear();
-                inventoryDataGrid.DataSource = filtered.ToList();
+                inventoryDataGrid.DataSource = filtered;
 
                 SetDataGridSettings();
             }
@@ -105,6 +108,7 @@ namespace InventoryUI
             {
                 inventoryDataGrid.Columns.Clear();
                 inventoryDataGrid.DataSource = DatabaseConnector.Items;
+                filtered = DatabaseConnector.Items;
                 SetDataGridSettings();
             }   
         }
@@ -117,6 +121,18 @@ namespace InventoryUI
         public void UpdateItemList()
         {
             WireUpDataGrid();
+        }
+
+        private void searchNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var text = searchNameTextBox.Text;
+            var filteredWithText = filtered.Where(x => x.Name.Contains(text)).ToList();
+
+            inventoryDataGrid.DataSource = null;
+            inventoryDataGrid.Columns.Clear();
+            inventoryDataGrid.DataSource = filteredWithText;
+
+            SetDataGridSettings();
         }
     }
 }

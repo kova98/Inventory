@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryViewerForm));
             this.categoryLabel = new System.Windows.Forms.Label();
             this.restockButton = new System.Windows.Forms.Button();
@@ -140,6 +139,7 @@
             this.searchNameTextBox.Name = "searchNameTextBox";
             this.searchNameTextBox.Size = new System.Drawing.Size(206, 35);
             this.searchNameTextBox.TabIndex = 2;
+            this.searchNameTextBox.TextChanged += new System.EventHandler(this.searchNameTextBox_TextChanged);
             // 
             // searchNameLabel
             // 
@@ -182,14 +182,6 @@
             this.inventoryDataGrid.Location = new System.Drawing.Point(176, 102);
             this.inventoryDataGrid.Name = "inventoryDataGrid";
             this.inventoryDataGrid.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventoryDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.inventoryDataGrid.RowHeadersVisible = false;
             this.inventoryDataGrid.RowTemplate.Height = 35;
             this.inventoryDataGrid.Size = new System.Drawing.Size(778, 436);
