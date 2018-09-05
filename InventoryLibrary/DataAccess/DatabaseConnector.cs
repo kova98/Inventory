@@ -111,10 +111,12 @@ namespace InventoryLibrary.DataAccess
 
                     if (item.Category == null)
                     {
-                        itemToEdit.Category = Categories.FirstOrDefault(x => x.Id == item.Category.Id);
+                        
                     }
 
-                    db.Entry(itemToEdit).State = EntityState.Modified;
+                    itemToEdit.Category = Categories.FirstOrDefault(x => x.Name == item.Category.Name);
+
+                    db.Entry(itemToEdit.Category).State = EntityState.Modified;
                     db.SaveChanges();
 
                     return true;

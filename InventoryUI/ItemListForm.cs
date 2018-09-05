@@ -163,7 +163,7 @@ namespace InventoryUI
             var item = new Item
             {
                 Name = "New Item",
-                Category = DatabaseConnector.Categories.FirstOrDefault(),
+                Category = null,
                 Company = "",
                 Price = 0
             };

@@ -126,7 +126,7 @@ namespace InventoryUI
         private void searchNameTextBox_TextChanged(object sender, EventArgs e)
         {
             var text = searchNameTextBox.Text;
-            var filteredWithText = filtered.Where(x => x.Name.Contains(text)).ToList();
+            var filteredWithText = filtered.Where(x => x.Name.ToUpper().Contains(text.ToUpper())).ToList();
 
             inventoryDataGrid.DataSource = null;
             inventoryDataGrid.Columns.Clear();
